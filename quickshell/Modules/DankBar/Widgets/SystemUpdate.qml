@@ -96,8 +96,8 @@ BasePill {
                 color: Theme.error
                 anchors.right: parent.right
                 anchors.top: parent.top
-                anchors.rightMargin: (barConfig?.removeWidgetPadding ?? false) ? 0 : 6
-                anchors.topMargin: (barConfig?.removeWidgetPadding ?? false) ? 0 : 6
+                anchors.rightMargin: (barConfig?.widgetPadding == 0 ?? false) ? 0 : 6
+                anchors.topMargin: (barConfig?.widgetPadding == 0 ?? false) ? 0 : 6
                 visible: root.isVerticalOrientation && root.hasUpdates && !root.isChecking
             }
 

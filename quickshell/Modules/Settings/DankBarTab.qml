@@ -155,7 +155,6 @@ Item {
             widgetPadding: defaultBar.widgetPadding ?? 8,
             maximizeWidgetIcons: defaultBar.maximizeWidgetIcons ?? false,
             maximizeWidgetText: defaultBar.maximizeWidgetText ?? false,
-            removeWidgetPadding: defaultBar.removeWidgetPadding ?? false,
             fontScale: defaultBar.fontScale ?? 1.0,
             iconScale: defaultBar.iconScale ?? 1.0,
             autoHide: defaultBar.autoHide ?? false,
@@ -952,7 +951,6 @@ Item {
 
                 SettingsSliderRow {
                     id: widgetPaddingSlider
-                    visible: !SettingsData.frameEnabled
                     text: I18n.tr("Padding")
                     description: I18n.tr("Inner padding applied to each widget")
                     value: selectedBarConfig?.widgetPadding ?? 8
@@ -960,8 +958,6 @@ Item {
                     maximum: 32
                     unit: "px"
                     defaultValue: 8
-                    opacity: (selectedBarConfig?.removeWidgetPadding ?? false) ? 0.5 : 1.0
-                    enabled: !(selectedBarConfig?.removeWidgetPadding ?? false)
                     onSliderValueChanged: newValue => {
                         SettingsData.updateBarConfig(selectedBarId, {
                             widgetPadding: newValue
@@ -1188,15 +1184,6 @@ Item {
                     checked: selectedBarConfig?.maximizeWidgetText ?? false
                     onToggled: checked => SettingsData.updateBarConfig(selectedBarId, {
                             maximizeWidgetText: checked
-                        })
-                }
-
-                SettingsToggleRow {
-                    text: I18n.tr("Remove Widget Padding")
-                    description: I18n.tr("Remove inner padding from all widgets")
-                    checked: selectedBarConfig?.removeWidgetPadding ?? false
-                    onToggled: checked => SettingsData.updateBarConfig(selectedBarId, {
-                            removeWidgetPadding: checked
                         })
                 }
 

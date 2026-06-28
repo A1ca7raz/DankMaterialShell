@@ -252,6 +252,19 @@ function migrateToVersion(obj, targetVersion) {
         settings.configVersion = 11;
     }
 
+    if (currentVersion < 12) {
+        console.info("Migrating settings from version", currentVersion, "to version 12");
+        var bars = Array.isArray(settings.barConfigs) ? settings.barConfigs : [];
+        for (var k = 0; k < bars.length; k++) {
+            var b = bars[k];
+            if (!b) continue;
+            if (b.removeWidgetPadding === true && (b.widgetPadding === undefined || b.widgetPadding === null))
+                b.widgetPadding = 0;
+            delete b.removeWidgetPadding;
+        }
+        settings.configVersion = 12;
+    }
+
     return settings;
 }
 

@@ -537,7 +537,6 @@ var SPEC = {
             noBackground: false,
             maximizeWidgetIcons: false,
             maximizeWidgetText: false,
-            removeWidgetPadding: false,
             widgetPadding: 8,
             gothCornersEnabled: false,
             gothCornerRadiusOverride: false,

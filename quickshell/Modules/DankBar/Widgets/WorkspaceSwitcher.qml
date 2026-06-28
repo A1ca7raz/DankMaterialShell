@@ -548,7 +548,7 @@ Item {
     }
 
     readonly property real dpr: parentScreen ? CompositorService.getScreenScale(parentScreen) : 1
-    readonly property real padding: (root.barConfig?.removeWidgetPadding ?? false) ? 0 : Theme.snap((root.barConfig?.widgetPadding ?? 12) * (widgetHeight / 30), dpr)
+    readonly property real padding: Theme.snap((root.barConfig?.widgetPadding ?? 12) * (widgetHeight / 30), dpr)
     readonly property real visualWidth: isVertical ? widgetHeight : (workspaceRow.implicitWidth + padding * 2)
     readonly property real visualHeight: isVertical ? (workspaceRow.implicitHeight + padding * 2) : widgetHeight
     readonly property real appIconSize: Theme.barIconSize(barThickness, -6 + SettingsData.workspaceAppIconSizeOffset, root.barConfig?.maximizeWidgetIcons, root.barConfig?.iconScale)
